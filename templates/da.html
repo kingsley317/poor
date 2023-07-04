@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website - Data Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>My Website</h1>
+        <ul>
+          <li><a href="{{ url_for('ai_modeling') }}" class="active"><i class="fas fa-search"></i> AI modeling</a></li>
+          <li><a href="#"><i class="fas fa-book"></i> book adding</a></li>
+      </ul>
+    </div>
+    <div class="sidebar">
+      <div class="logo">
+        <img src="{{url_for('static', filename='/images/logo.jpg')}}" alt="Logo">
+      </div>
+      <a href="{{ url_for('home') }}">Introduction</a>
+      <a href="{{ url_for('data_analysis') }}">Data Analysis</a>
+      <a href="{{ url_for('data_modeling') }}">Data Modeling</a>
+      <a href="{{ url_for('findings_evaluation') }}">Findings and Evaluation</a>
+      <a href="{{ url_for('conclusion') }}">Conclusion</a>
+    </div>
+    <div class="content">
+        <h2>Data Analysis</h2>
+        <h2 style="font-family: verdana Sans;">Factors Identified and Reasons</h2>
+        <u><p><b>Job Code</b></p></u>
+        <p> The job code is a 3-digit number corresponding to the job position. Each code represents a specific job level and associated duties. The job code will be the target or focus of our models and analysis.</p>
+        <u><p><b>Job Title</b></p></u>
+        <p>Job titles can help match positions to job codes in manpower surveys, enabling government reporting, payroll systems and hiring decisions. However, job titles alone are sometimes insufficient to determine accurate job codes, as they can be vague, overlapping or inconsistent.</p> 
+  
+        <p style="text-align: left;">
+          <h2>Factors Eliminated and Reasons</h2>
+          <u><p><b>Company and Branch</b></p></u>
+          <p>Company names and branches are not necessarily related to certain levels and types of job positions. For instance, clothing company Ambition hired various job positions at different job levels.</p>
+          <div style="height: 300px; width: 1000px; overflow: auto; background: #EEEEEE;">
+           
+
+            <div class="container">
+              {{ data|safe }}
+            </div>
+
+          </div>
+  
+        <p style="text-align: left;">
+          <h2 style="font-family: verdana Sans;">Factors reserved for further process</h2>
+          <u><p><b>Job description</b></p></u>
+          <p> Job descriptions provide insight into the skills, duties, company nature, etc. to help identify job codes when titles are insufficient. As explained in the Roadmap Development and Deployment section, our initial focus was on building a basic structure and processes, simply assigning high-level codes. We plan to refine and optimize the code assignment process in the future, considering job description information.Help identify and distinguish similar roles. </p>
+          <u><p><b>Working experience and experience</b></p></u>
+          <p>Due to time constraints, we have provisionally adopted a simple classification process to build an initial framework. Going forward, we can more complex models that consider multiple factors while continuously improving the models with more collected and annotated data. This will require more time and resources but has the potential to improve the accuracy of classification results. </p> 
+          <u><p><b>Prediction Model Chosen (Decision Tree & Random Forest)</b></p></u>
+          <p>Decision tree and random forest models are suitable for our job classification task due to their interpretability, accuracy and ability to handle complex interactions between multiple factors. A decision tree uses a visualized tree structure where each branch represents a decision point and leaves represent classifications. A random forest builds multiple decision trees and combines their predictions through voting, which can improve accuracy. Given the complexity of job classification, random forests have the potential to capture important factors and their interactions while achieving high accuracy. Therefore, we plan to implement and evaluate random forest classifiers to determine if they can enhance the interpretability and performance of our job code assignment process.</p>
+        </p>
+     
+        <h2>Data Preparation</h2>
+<p>
+  <u><b>Sources of Data</b></u><br>
+  The dataset is downloaded from <a class="a_link" href="https://moodle2223.vtc.edu.hk/course/view.php?id=4388">moodle2223.vtc.edu.hk</a>, the moodle website of course ITE3109.
+</p>
+<p>
+  <u><b>Data Preparation and Cleansing</b></u><br>
+  R and Microsoft Excel are mainly used to process different problems in raw data based on the following steps:
+</p>
+<p>
+  <u><b>Natural language processing</b></u><br>
+  In the job title column, some titles include Chinese. Partial data as shown below.
+</p>
+<img src="{{url_for('static', filename='images/DataAnalysis_Picture4.jpg')}}" idth="200" height="200" />
+<p>
+  To increase the accuracy of the model, we use the translation function in Excel to translate Chinese job titles into English. Results are shown below.
+</p>
+<img src="{{url_for('static', filename='images/DataAnalysis_Picture5.jpg')}}" idth="20" height="50" />
+<p>
+  <u><b>Incorrect data</b></u><br>
+  In checking data, we found dozens of job titles but have various job codes; we adopt a mode to become the job code, to eliminate the problem of the same job title but having a different job code. Before process and after process data set are shown below.
+</p>
+<img src="{{url_for('static', filename='images/DataAnalysis_Picture7.jpg')}}" idth="100" height="100"  />
+
+<p>
+  <u><b>Abnormal data</b></u><br>
+  Some job titles include extra information like company names, workplaces or partial data, reducing accuracy and efficiency. To improve the dataset, we should remove this abnormal information from titles using code to detect and delete titles with useless content like company names, workplaces or department names within companies. Standardizing titles by removing non-essential information will yield cleaner, more consistent data for analysis.
+</p>
+<img src="{{url_for('static', filename='images/DataAnalysis_Picture10.jpg')}}" idth="100" height="100" />
+<p>
+  <u><b>Anomalies</b></u><br>
+  Some job titles in the data contain errors where the information is anomalous or invalid. Upon review, we found a small percentage of the data points constitute outliers. Since the outliers comprise less than 10% of the total data set, their removal will not significantly impact the overall trends and patterns in the data. Therefore, we can safely delete these outlier data points to improve the quality and reliability of the data set for analysis. Removing outliers helps minimize their undue influence, produce more representative results, and yield more useful insights from data modeling and analytics.
+</p>
+<img src="{{url_for('static', filename='images/DataAnalysis_Picture6.jpg')}}" idth="300" height="200" />
+<p>
+  <u><b>Missing data</b></u><br>
+  Missing data is a common issue we addressed by simply removing rows with missing values. This involved deleting entire records that had any missing data in order to produce a clean, complete dataset for analysis. The before and after data sets demonstrate the impact of this approach in removing rows with incomplete information to yield a standardized dataset with no missing values.
+</p>
+<img src="{{url_for('static', filename='images/DataAnalysis_Picture13.jpg')}}" align="middle" />
+<p>
+      </div>
+
+      
+</body>
+</html>

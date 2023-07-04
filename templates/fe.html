@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website - Findings and Evaluation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>My Website</h1>
+        <ul>
+            <li><a href="{{ url_for('ai_modeling') }}" class="active"><i class="fas fa-search"></i> AI modeling</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> book adding</a></li>
+        </ul>
+    </div>
+    <div class="sidebar">
+        <div class="logo">
+          <img src="{{url_for('static', filename='/images/logo.jpg')}}" alt="Logo">
+        </div>
+        <a href="{{ url_for('home') }}">Introduction</a>
+        <a href="{{ url_for('data_analysis') }}">Data Analysis</a>
+        <a href="{{ url_for('data_modeling') }}">Data Modeling</a>
+        <a href="{{ url_for('findings_evaluation') }}">Findings and Evaluation</a>
+        <a href="{{ url_for('conclusion') }}">Conclusion</a>
+      </div>
+    <div class="content">
+        <h2>Findings and Evaluation</h2>
+        <p>Discussion of Results</p>
+        <p>Model 3 concluded the highest accuracy (0.4645) than other models.
+            As model 1 and model are only predicted job codes with titles, the difference between model 1 and model 2 uses a fixed language data set (English and Chinese) and an English-only dataset. But model 3 uses an English-only with batch_id</p>
+          
+          <img src="{{url_for('static', filename='/images/Findings_Picture7.jpg')}}"height="450">
+          <p>The above bar chart can tell us the frequencies of job_code that are predicted in the model, the model is m3_test which is the testing data set of model 3. 
+            We can find that job_code “000” has the highest frequency which is 90 and the second one is “312” which is 32.
+            </p>
+    </div>
+</body>
+</html>

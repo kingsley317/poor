@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website - AI modeling</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>My Website</h1>
+        <ul>
+            <li><a href="{{ url_for('ai_modeling') }}" class="active"><i class="fas fa-search"></i> AI modeling</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> book adding</a></li>
+        </ul>
+    </div>
+    <div class="sidebar">
+        <div class="logo">
+          <img src="{{url_for('static', filename='/images/logo.jpg')}}" alt="Logo">
+        </div>
+        <a href="{{ url_for('home') }}">Introduction</a>
+        <a href="{{ url_for('data_analysis') }}">Data Analysis</a>
+        <a href="{{ url_for('data_modeling') }}">Data Modeling</a>
+        <a href="{{ url_for('findings_evaluation') }}">Findings and Evaluation</a>
+        <a href="{{ url_for('conclusion') }}">Conclusion</a>
+      </div>
+    <div class="content">
+        <h2>AI Modeling result</h2>
+        <style>
+            img {
+              display: inline-block;
+              float: left;
+            }
+          </style>
+          
+          <img src="{{url_for('static', filename='/images/Findings_Picture1.jpg')}}"height="250">
+          <img src="{{url_for('static', filename='/images/Findings_Picture2.jpg')}}"height="250">
+          <img src="{{url_for('static', filename='/images/Findings_Picture3.jpg')}}"height="250">
+  
+          <img src="{{url_for('static', filename='/images/Findings_Picture4.jpg')}}"height="250">
+          <img src="{{url_for('static', filename='/images/Findings_Picture5.jpg')}}"height="250">
+          <img src="{{url_for('static', filename='/images/Findings_Picture6.jpg')}}"height="250">
+        </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website - Conclusion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>My Website</h1>
+        <ul>
+            <li><a href="{{ url_for('ai_modeling') }}" class="active"><i class="fas fa-search"></i> AI modeling</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> book adding</a></li>
+        </ul>
+    </div>
+    <div class="sidebar">
+        <div class="logo">
+          <img src="{{url_for('static', filename='/images/logo.jpg')}}" alt="Logo">
+        </div>
+        <a href="{{ url_for('home') }}">Introduction</a>
+        <a href="{{ url_for('data_analysis') }}">Data Analysis</a>
+        <a href="{{ url_for('data_modeling') }}">Data Modeling</a>
+        <a href="{{ url_for('findings_evaluation') }}">Findings and Evaluation</a>
+        <a href="{{ url_for('conclusion') }}">Conclusion</a>
+      </div>
+    <div class="content">
+        <h2>Conclusion</h2>
+        <p>After testing four different models, Model 4 achieved the highest accuracy. All models used random forests for modelling the data.</p>
+        <p>The project primarily focused on the data preparation, modelling, and evaluation stages of the data science lifecycle. Each team member was responsible for different tasks that ultimately came together. After initial model testing, the team discussed how to further improve model accuracy through tools,methods, and additional data exploration. The final model was then selected for demonstration.</p>
+        <p>The most important part of the project for the team was the data preparation stage. The dataset's quality significantly impacts the output and results of the modelling. The team had to clean the data by addressing inconsistencies and anomalies, which was a difficult and complicated process but essential prior to modelling. The team discussed different data preparation methods using R and Excel software. This data preparation stage provided the most valuable learning for the team.</p>
+        <p> Beyond coding skills and data science knowledge, the project required effective cooperation and communication amongst team members to incorporate each person's insights and contributions. Working together to navigate the data science process and improve the model was the most valuable learning outcome.</p>
+        <p>Thank you for visiting our website!</p>
+    </div>
+</body>
+</html>
