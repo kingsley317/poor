@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>My Website</h1>
+        <ul>
+            <li><a href="{{ url_for('ai_modeling') }}" class="active"><i class="fas fa-search"></i> AI modeling</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> book adding</a></li>
+        </ul>
+    </div>
+    <div class="sidebar">
+        <div class="logo">
+          <img src="{{url_for('static', filename='/images/logo.jpg')}}" alt="Logo">
+        </div>
+        <a href="{{ url_for('home') }}">Introduction</a>
+        <a href="{{ url_for('data_analysis') }}">Data Analysis</a>
+        <a href="{{ url_for('data_modeling') }}">Data Modeling</a>
+        <a href="{{ url_for('findings_evaluation') }}">Findings and Evaluation</a>
+        <a href="{{ url_for('conclusion') }}">Conclusion</a>
+      </div>
+    <div class="content">
+        <h2>Introduction</h2>
+        <h3>BACKGROUND</h3>
+        <ul>
+            <li>The VTC manpower survey collects information of employees, such as count, income, and education, to formulate training with the government and different stakeholders.</li>
+            <li>The process of retrieving, cleaning, and classifying unstructured job advertisements into Principal Job Titles is ongoing.</li>
+            <li>Currently, the accuracy of the classification is around 46.45%.</li>
+        </ul>
+        <h3>BUSINESS REQUIREMENTS</h3>
+        <ul>
+            <li>A model that can accurately classify job advertisements into Principal Job Titles is needed.</li>
+            <li>The model is expected to generate accurate predictions and classifications of job codes.</li>
+        </ul>
+        <h3>PROJECT OBJECTIVES</h3>
+        <ul>
+            <li>To utilize the knowledge learned in class to identify factors that influence job classifications.</li>
+            <li>To construct a prediction and analytic model to identify job classifications in real situations.</li>
+            <li>To enhance the efficiency of the operation of the Manpower Survey conducted by the HIP of VTC, including data collection, cleaning, modeling, and classification of job advertisements.</li>
+        </ul>
+    </div>
+    <script>
+        function loadData() {
+          fetch('/data')
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+            });
+        }
+        </script>
+        <button onclick="loadData()">Load Data</button>
+</body>
+</html>

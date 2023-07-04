@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Website - Data Modeling</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="navbar">
+            <h1>My Website</h1>
+            <ul>
+                <li><a href="{{ url_for('ai_modeling') }}" class="active"><i class="fas fa-search"></i> AI modeling</a></li>
+                <li><a href="#"><i class="fas fa-book"></i> book adding</a></li>
+            </ul>
+        </div>
+        <div class="sidebar">
+            <div class="logo">
+              <img src="{{url_for('static', filename='/images/logo.jpg')}}" alt="Logo">
+            </div>
+            <a href="{{ url_for('home') }}">Introduction</a>
+            <a href="{{ url_for('data_analysis') }}">Data Analysis</a>
+            <a href="{{ url_for('data_modeling') }}">Data Modeling</a>
+            <a href="{{ url_for('findings_evaluation') }}">Findings and Evaluation</a>
+            <a href="{{ url_for('conclusion') }}">Conclusion</a>
+          </div>
+</head>
+<body>
+    <div class="content">
+    <h1>Data Modeling Report</h1>
+    
+    <!-- Model 1:  -->
+    <div>
+        <h3>1st Model (Decision Tree)</h3>
+        <u><p><b>Training Datasets </b></u>
+        <p>The resulting training dataset contains 721 observations and 55 variables, derived from the cleaning and splitting of the original dataset, which was obtained from 100 random seeds using R.        </p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture3.jpg')}}" idth="200" height="200" />
+        <p>You may refer to the R script that we have submitted for the full list of the training dataset.</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture4.jpg')}}" />
+        
+        <u><p><b>Data Modeling </b></u>
+        <p>For all models we have in this project, we use a 70/30 for the training dataset and the testing dataset. After splitting the datasets into training datasets and testing datasets, we assign job code columns in the original data set into training data sets which call recommended_code, and also testing data sets as well.  
+            This is the summary of our models which are using random forest modeling:
+            We named model 1 as m1_RF_model..</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture6.jpg')}}" idth="100" height="250"/>
+        
+        <u><p><b>Confusion Matrix and Test Statistics (Decision Tree)</b></u>
+        <p>You may refer to the R script that we have submitted for the full table of the Confusion Matrix of the decision tree.</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture9.jpg')}}"height="90" />
+        <p>Confusion Matrix of decision tree (random seed is 100):</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture10.jpg')}}"height="300" />
+        <p>Test statistics of decision tree (random seed is 100):</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture11.jpg')}}" height="250" />
+    </div>
+    
+    <!-- Model 2 -->
+    <div>
+        <h3>2nd Model (Decision Tree)</h3>
+        <u><p><b>Training Datasets </b></u>
+        <p>The final training dataset includes 721 observations and 114 variables derived from cleaning and splitting the original dataset records obtained from 100 random seeds using R. Model 2 achieves the second highest accuracy among compared models, all using random forest modeling.        </p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture12.jpg')}}" idth="200" height="400" />
+        <p>You may refer to the R script that we have submitted for the full list of the training dataset.</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Pictur13.jpg')}}"height="400" />
+        
+        <u><p><b>Data Modeling </b></u>
+        <p>For all models we have in this project, we use a 70/30 for the training dataset and the testing dataset. After splitting the datasets into training datasets and testing datasets, we assign job code columns in the original data set into training data sets which call recommended_code, and also testing data sets as well.  
+            This is the summary of our models which are using random forest modeling:
+            We named model 2 as m2_RF_model..</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture14.jpg')}}" idth="100" height="250"/>
+        
+        <u><p><b>Confusion Matrix and Test Statistics (Decision Tree)</b></u>
+        <p>You may refer to the R script that we have submitted for the full table of the Confusion Matrix of the decision tree.</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture9.jpg')}}"height="90" />
+        <p>Confusion Matrix of decision tree (random seed is 100):</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture15.jpg')}}"height="300" />
+        <p>Test statistics of decision tree (random seed is 100):</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture16.jpg')}}" height="250" />
+    </div>
+    
+    <!-- Model 3 -->
+    <div>
+        <h3>3rd Model (Decision Tree)</h3>
+        <u><p><b>Training Datasets </b></u>
+        <p>The final training dataset includes 721 observations and 115 variables derived from cleaning and splitting the original dataset records obtained from 100 random seeds using R. Model 3 achieves the first highest accuracy among compared models, all using random forest modeling. </p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture17.jpg')}}" idth="200" height="200" />
+        <p>You may refer to the R script that we have submitted for the full list of the training dataset.</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture18.jpg')}}" height="300" />
+        
+        <u><p><b>Data Modeling </b></u>
+        <p>For all models we have in this project, we use a 70/30 for the training dataset and the testing dataset. After splitting the datasets into training datasets and testing datasets, we assign job code columns in the original data set into training data sets which call recommended_code, and also testing data sets as well.  
+            This is the summary of our models which are using random forest modeling:
+            We named model 3 as m3_RF_model..</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture19.jpg')}}" idth="100" height="250"/>
+        
+        <u><p><b>Confusion Matrix and Test Statistics (Decision Tree)</b></u>
+        <p>You may refer to the R script that we have submitted for the full table of the Confusion Matrix of the decision tree.</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture9.jpg')}}"height="90" />
+        <p>Confusion Matrix of decision tree (random seed is 100):</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture20.jpg')}}"height="300" />
+        <p>Test statistics of decision tree (random seed is 100):</p>
+        <img src="{{url_for('static', filename='/images/DataModeling_Picture21.jpg')}}" height="250" />
+    </div>
+
+    <p>Download the R code of Data Modeling 
+        <a href="{{url_for('static', filename='data/r.r')}}" download>R code</a></p>
+</body>
+</html>
